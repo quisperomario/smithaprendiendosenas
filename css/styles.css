@@ -1,0 +1,344 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/images/1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #e0e0e0;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fondo oscuro sobre la imagen para mejor legibilidad */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7); /* Opacidad del filtro */
+  backdrop-filter: blur(3px);     /* Difuminado */
+  z-index: -1;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(20, 20, 50, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00ffcc;
+}
+
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px 32px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 40px 0 30px 0;
+  width: 100%;
+}
+.desc-item {
+  background: rgba(255,255,255,0.10);
+  border-radius: 24px;
+  box-shadow: 0 4px 32px #00ffcc33, 0 0 0 2px #00ffcc22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 28px 24px;
+  min-width: 0;
+  max-width: 420px;
+  width: 100%;
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.desc-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateZ(0);
+}
+@keyframes descItemShow {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96) rotateZ(-2deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.04) rotateZ(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateZ(0);
+  }
+}
+.desc-item:hover {
+  box-shadow: 0 8px 40px #00ffcc77, 0 0 0 4px #00ffcc44;
+  transform: translateY(-8px) scale(1.04) rotateZ(1deg);
+  transition: box-shadow 0.3s, transform 0.4s cubic-bezier(.22,1,.36,1);
+}
+.desc-item {
+  background: rgba(255,255,255,0.10);
+  border-radius: 24px;
+  box-shadow: 0 4px 32px #00ffcc33, 0 0 0 2px #00ffcc22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 28px 24px;
+  min-width: 0;
+  max-width: 420px;
+  width: 100%;
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.desc-item h2 {
+  font-size: 1.3em;
+  color: #00ffcc;
+  margin-bottom: 18px;
+  font-family: 'Segoe UI Semibold', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.desc-item .desc-img {
+  margin-bottom: 18px;
+  margin-top: 0;
+}
+.desc-item .desc-texto {
+  text-align: center;
+  font-size: 1.13em;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+.desc-item:hover {
+  box-shadow: 0 8px 40px #00ffcc77, 0 0 0 4px #00ffcc44;
+  transform: translateY(-8px) scale(1.04);
+}
+
+.desc-item:hover {
+  box-shadow: 0 4px 32px #00ffcc55;
+  transform: translateY(-6px) scale(1.03);
+}
+.desc-img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 36px;
+  background: #fff;
+  box-shadow: 0 0 64px #00ffccaa, 0 0 0 16px rgba(0,255,204,0.13);
+  flex-shrink: 0;
+  filter: brightness(1.08) saturate(1.1);
+}
+
+
+.desc-texto {
+  font-size: 1.1em;
+  color: #e0e0e0;
+  margin: 0.5em 0 0 0;
+  line-height: 1.5;
+}
+.resaltado {
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 40px auto;
+  padding: 40px;
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #00ffcc;
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #00b3b3;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 24px 18px 18px 18px;
+  border-radius: 18px;
+  max-width: 340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 16px #00ffcc22;
+  transition: box-shadow 0.3s, transform 0.3s;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px #00ffcc55;
+}
+
+.card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  background: #fff;
+  box-shadow: 0 0 32px #00ffcc55;
+}
+
+.card iframe,
+.card video {
+  width: 100%;
+  max-width: 280px;
+  height: 170px;
+  border-radius: 12px;
+  margin-top: 12px;
+  box-shadow: 0 0 16px #00ffcc33;
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+  color: #00ffcc;
+  font-size: 1.2em;
+}
+
+.card p.desc {
+  font-size: 1em;
+  color: #e0e0e0;
+  margin: 8px 0 0 0;
+  text-align: center;
+}
+
+.card p strong {
+  color: #00ffcc;
+}
+
+
+/* FORM */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1em;
+}
+
+button {
+  background: #00ffcc;
+  color: #000;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #00b3b3;
+}
+
+/* FOOTER */
+footer {
+  background: #1e1e3f;
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+/* Animación fade-in básica */
+.fade {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.fade.visible {
+  opacity: 1;
+}
+
+/* Efecto hover sutil para las imágenes de la sección Inicio */
+.desc-img {
+  transition: transform 0.3s;
+}
+
+.desc-img:hover {
+  transform: scale(1.03);
+}
